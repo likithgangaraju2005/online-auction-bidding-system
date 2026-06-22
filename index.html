@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Online Auction System</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h1>Online Auction / Bidding System</h1>
+
+<a href="/register">Register</a>
+<a href="/login">Login</a>
+<a href="/add_product">Add Product</a>
+
+<hr>
+
+{% for product in products %}
+
+<div class="card">
+
+<h2>{{product[1]}}</h2>
+
+<p>Base Price : ₹{{product[2]}}</p>
+
+<p>Highest Bid : ₹{{product[3]}}</p>
+
+<form action="/bid/{{product[0]}}" method="POST">
+
+<input type="number" name="amount" required>
+
+<button>Place Bid</button>
+
+</form>
+
+</div>
+
+{% endfor %}
+
+</body>
+</html>
